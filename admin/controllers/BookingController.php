@@ -4,6 +4,7 @@ class BookingController
 
     public function __construct()
     {
+        
     }
 
     public function cancelBooking()

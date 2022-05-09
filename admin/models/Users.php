@@ -5,12 +5,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
+use User as GlobalUser;
+
 class User
 {
 
     public function __construct()
     {
     }
+
 
     public function login($username, $password)
     {
@@ -45,7 +48,6 @@ class User
             $chngpwd1->execute();
             return true;
         } else {
-
             return false;
         }
     }

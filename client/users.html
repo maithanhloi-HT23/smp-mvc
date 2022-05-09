@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src = "js/config.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2 class="text-center">User List Manager (<a href="#logout" onclick="logout()">Logout</a>)</h2>
+			</div>
+			<div class="panel-body">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Full Name</th>
+							<th>User Name</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th style="width: 50px;"></th>
+							<th style="width: 50px;"></th>
+						</tr>
+					</thead>
+					<tbody id="userList"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function() {
+			$.post(BASE_URL + API_AUTHEN, {
+				'action': AUTHEN_USER_LIST
+			}, function(data) {
+				var obj = JSON.parse(data)
+				console.log(obj)
+				if(obj.status == 1) {
+					//Hien thi danh sach users
+					userList = obj.userList
+					for(i=0;i<userList.length;i++) {
+						item = userList[i]
+
+						$('#userList').append(`<tr>
+							<td>${i+1}</td>
+							<td>${item['fullname']}</td>
+							<td>${item['username']}</td>
+							<td>${item['email']}</td>
+							<td>${item['address']}</td>
+							<td><button class="btn btn-warning">Edit</button></td>
+							<td><button class="btn btn-danger">Delete</button></td>
+						</tr>`)
+					}
+				} else {
+					window.open('login.html', '_self')
+				}
+			})
+		})
+
+		function logout() {
+			$.post(BASE_URL + API_AUTHEN, {
+				'action': AUTHEN_LOGOUT
+			}, function(data) {
+				window.open('login.html', '_self')
+			})
+		}
+	</script>
+</body>
+</html>

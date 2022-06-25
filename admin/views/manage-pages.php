@@ -114,7 +114,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				</div>
 				<!--heder end here-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="dashboard.php">Trang Chủ</a><i class="fa fa-angle-right"></i>Cập nhật dữ liệu trang </li>
+					<li class="breadcrumb-item"><a href="../views/">Trang Chủ</a><i class="fa fa-angle-right"></i>Cập nhật dữ liệu trang </li>
 				</ol>
 				<!--grid-->
 				<div class="grid-form">

@@ -99,7 +99,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 				</div>
 				<!--heder end here-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="dashboard.php">Trang chủ</a><i class="fa fa-angle-right"></i>Quản lý yêu cầu </li>
+					<li class="breadcrumb-item"><a href="../views/">Trang chủ</a><i class="fa fa-angle-right"></i>Quản lý yêu cầu </li>
 				</ol>
 				<div class="agile-grids">
 					<!-- tables -->

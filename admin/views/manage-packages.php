@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('../includes/config.php');
+
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:../index.php');
 } else {
@@ -82,7 +82,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 				</div>
 				<!--heder end here-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="dashboard.php">Trang Chủ</a><i class="fa fa-angle-right"></i>Quản lý gói Tour</li>
+					<li class="breadcrumb-item"><a href="../views/">Trang Chủ</a><i class="fa fa-angle-right"></i>Quản lý gói Tour</li>
 				</ol>
 				<div class="agile-grids">
 					<!-- tables -->
@@ -103,26 +103,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 									</tr>
 								</thead>
 								<tbody>
-									<?php 
-									$sql = "SELECT * from TblTourPackages";
-									$query = $dbh->prepare($sql);
-									$query->execute();
-									$results = $query->fetchAll(PDO::FETCH_OBJ);
-									$cnt = 1;
-									if ($query->rowCount() > 0) {
-										foreach ($results as $result) {				?>
-											<tr>
-												<td><?php echo htmlentities($cnt); ?></td>
-												<td><?php echo htmlentities($result->PackageName); ?></td>
-												<td><?php echo htmlentities($result->PackageType); ?></td>
-												<td><?php echo htmlentities($result->PackageLocation); ?></td>
-												<td><?php echo htmlentities($result->PackagePrice); ?>VND</td>
-												<td><?php echo htmlentities($result->Creationdate); ?></td>
-												<td><a href="update-package.php?pid=<?php echo htmlentities($result->PackageId); ?>"><button type="button" class="btn btn-primary btn-block">Xem Chi tiết</button></a></td>
-											</tr>
-									<?php $cnt = $cnt + 1;
-										}
-									} ?>
+									<?php include '../controllers/ShowPackage.php'; ?>
 								</tbody>
 							</table>
 						</div>

@@ -10,7 +10,7 @@ if (strlen($_SESSION['login']) == 0) {
         if ($cancel->cancleBooking() == true) {
             $msg = "Đã hủy thành công!";
         } else {
-            $error = "Bạn không thể hủy đặt chỗ trước 24 giờ !";
+            $error = "Bạn không thể hủy đặt trước 24 giờ !";
         }
     }
 ?>

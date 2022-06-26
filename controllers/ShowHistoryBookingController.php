@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
+include "../includes/config.php";
 $uemail = $_SESSION['login'];
 $sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tbltourpackages.PackageName as packagename,tblbooking.Amount as amount,tblbooking.Comment as comment,tblbooking.status as status,tblbooking.Bookingdate as bookingdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail";
 $query = $dbh->prepare($sql);
@@ -38,7 +39,7 @@ if ($query->rowCount() > 0) {
             if ($result->status == 2) {
                 ?><td>Đã hủy</td>
             <?php } else { ?>
-                <td><a href="booking-history.php?php echo htmlentities($result->bookid); ?>" onclick="return confirm('Bạn có thực sự muốn hủy đặt hàng không ?')" >Cancel</a></td>
+                <td><a href="booking-history.php?bkid=<?php echo htmlentities($result->bookid); ?>" onclick="return confirm('Bạn có thực sự muốn hủy đặt hàng không ?')" >Hủy</a></td>
             <?php } ?>
         </tr>
         <?php

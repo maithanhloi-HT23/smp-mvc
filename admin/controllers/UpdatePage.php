@@ -7,11 +7,12 @@ class UpdatePage
 
     public function updatePage()
     {
-        include "../controllers/UpdatePage.php";
-        $pagetype = $_GET['type'];
-        $pagedetails = $_POST['pgedetails'];
+        include "../models/Page.php";
         $page = new Page();
-        if($page->Update($pagetype, $pagedetails)){
+
+        $pagetype = $_GET['type'];
+		$pagedetails = $_POST['pgedetails'];
+        if($page->Update($pagetype, $pagedetails) == true){
             return true;
         }else{
             return false;

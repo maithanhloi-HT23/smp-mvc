@@ -23,7 +23,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 	<html>
 
 	<head>
-		<title>LTQQN | Quản trị viên quản lý Đặt Tour</title>
+		<title>LTQQN | Quản trị viên quản lý Đặt Hành</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script type="application/x-javascript">
@@ -105,14 +105,14 @@ if (strlen($_SESSION['alogin']) == 0) {
 				</div>
 				<!--heder end here-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="../views/">Trang Chủ</a><i class="fa fa-angle-right"></i>Quản Lý Đặt Tour</li>
+					<li class="breadcrumb-item"><a href="../views/">Trang Chủ</a><i class="fa fa-angle-right"></i>Quản Lý Đặt Hàng</li>
 				</ol>
 				<div class="agile-grids">
 					<!-- tables -->
 					<?php if ($error) { ?><div class="errorWrap"><strong>lỗi</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>thành công</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
 					<div class="agile-tables">
 						<div class="w3l-table-info">
-							<h2>Quản lý đặt Tour</h2>
+							<h2>Quản lý đặt hàng</h2>
 							<table id="table">
 								<thead>
 									<tr>
